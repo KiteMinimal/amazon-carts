@@ -32,27 +32,33 @@ const App = () => {
       added: false,
     },
   ];
-  const [songData, setSongData] = useState(data)
+  const [songData, setSongData] = useState(data);
 
-  const addSongHandler = (index)=>{
-    setSongData((elem)=>{
-      return elem.map((e,idx)=>{
-        if(idx === index){
-          return {...e, added:!e.added}
+  const addSongHandler = (index) => {
+    setSongData((elem) => {
+      return elem.map((e, idx) => {
+        if (idx === index) {
+          return { ...e, added: !e.added };
         }
         return e;
-      }
-      )
-    })
-  }
+      });
+    });
+  };
 
   return (
     <div className="w-full h-screen bg-zinc-300 ">
-      <Navbar data={songData}/>
+      <Navbar data={songData.filter((elem) => elem.added === true).length} />
       <div className="p-20 flex gap-10 mt-10 flex-wrap">
-        {songData.map(function(obj,idx){
+        {songData.map(function (obj, idx) {
           // return <Cards image={obj.image} name={obj.name} artist={obj.artist} added={obj.added} />
-          return <Cards key={idx} data={obj} handleClick ={addSongHandler} index={idx}/>
+          return (
+            <Cards
+              key={idx}
+              data={obj}
+              handleClick={addSongHandler}
+              index={idx}
+            />
+          );
           // or ap aese bhi data send kr sakte he return <cards data={obj}>
         })}
       </div>

@@ -6,7 +6,7 @@ const Navbar = ({data}) => {
         <h3>orange</h3>
         <div className='flex p-2 px-3 rounded-lg bg-orange-600 text-white text-sm gap-3'>
             <h2>Favourite</h2>
-            <h3>{data.filter((elem)=> {return elem.added === true}).length}</h3>
+            <h3>{data}</h3>
         </div>
 
     </div>

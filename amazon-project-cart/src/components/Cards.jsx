@@ -1,10 +1,9 @@
 import React from "react";
 
 const Cards = (prop) => {
-    // console.log(prop);
-    
+  // console.log(prop);
 
-   const { data, handleClick, index } = prop;
+  const { data, handleClick, index } = prop;
   const { image, name, artist, added } = data;
   return (
     <div
@@ -26,7 +25,7 @@ const Cards = (prop) => {
         onClick={() => handleClick(index)}
         className={`px-3 py-2 ${
           added ? "bg-teal-500" : "bg-orange-600"
-        } absolute bottom-0 translate-y-[50%] left-1/2 -translate-x-[50%] whitespace-nowrap  text-white font-xs rounded-full`}
+        } absolute bottom-0 translate-y-[50%] left-1/2 -translate-x-[50%] hover:animate-spin whitespace-nowrap  text-white font-xs rounded-full`}
       >
         {added ? "Added" : "Added to Cart"}
       </button>
